@@ -1,0 +1,5 @@
+JobSatisfaction(Y),JobInvolvement(Y),OverTime(Y),PerformanceRating(Y),RelationshipSatisfaction(Y) ,JobSatisfaction(N) ,JobInvolvement(N),OverTime(N),PerformanceRating(N) ,RelationshipSatisfaction(N)  
+66,28,127,0,57,223,55,289,0,219
+46,71,0,0,45,234,304,0,0,258
+73,125,0,200,71,369,743,0,1044,388
+52,13,0,37,64,407,131,0,189,368
