@@ -10,23 +10,14 @@ cate=[]#to store encoded categorical values
 col_names=[]# to store category names
 dfc = pd.DataFrame.from_csv('1k_categorical.csv', index_col=None)
 val=array(dfc)
-<<<<<<< HEAD
 #print list(dfc)
 #print val.T
-=======
-print list(dfc)
-print val.T
->>>>>>> 3b51054dbb94d488ea88d7ed9dce746d88ec4740
 for data in val.T:
     value = data
     # integer encode changing labes to integers
     label_encoder = LabelEncoder()
     integer_encoded = label_encoder.fit_transform(value)
-<<<<<<< HEAD
     #print list(label_encoder.classes_)
-=======
-    print list(label_encoder.classes_)
->>>>>>> 3b51054dbb94d488ea88d7ed9dce746d88ec4740
     col_names+=list(label_encoder.classes_)
     # binary encode
     onehot_encoder = OneHotEncoder(sparse=False)
@@ -38,11 +29,8 @@ for data in val.T:
     for col in onehot_encoded.T:
         cate.append(col)
     #time.sleep(1)
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 3b51054dbb94d488ea88d7ed9dce746d88ec4740
 #print col_names
 #print array(cate).T
 #categorical DataFrame
@@ -52,7 +40,6 @@ dfnc=pd.DataFrame.from_csv('1k_noncate.csv', index_col=None)
 #combining both data frames
 df=pd.concat([dfnc,dfc],axis=1)
 #df.to_csv("combined.csv")
-<<<<<<< HEAD
 
 print df['left'].value_counts()
 
@@ -60,5 +47,3 @@ print df['left'].value_counts()
 #X, y = array(df).T[1:],array(df).T[0]
 
 #X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
-=======
->>>>>>> 3b51054dbb94d488ea88d7ed9dce746d88ec4740
