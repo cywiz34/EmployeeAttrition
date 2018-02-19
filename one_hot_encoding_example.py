@@ -1,3 +1,4 @@
+from sklearn.model_selection import train_test_split
 from numpy import array
 from numpy import argmax
 from sklearn.preprocessing import LabelEncoder
@@ -9,14 +10,14 @@ cate=[]#to store encoded categorical values
 col_names=[]# to store category names
 dfc = pd.DataFrame.from_csv('1k_categorical.csv', index_col=None)
 val=array(dfc)
-print list(dfc)
-print val.T
+#print list(dfc)
+#print val.T
 for data in val.T:
     value = data
     # integer encode changing labes to integers
     label_encoder = LabelEncoder()
     integer_encoded = label_encoder.fit_transform(value)
-    print list(label_encoder.classes_)
+    #print list(label_encoder.classes_)
     col_names+=list(label_encoder.classes_)
     # binary encode
     onehot_encoder = OneHotEncoder(sparse=False)
@@ -28,6 +29,8 @@ for data in val.T:
     for col in onehot_encoded.T:
         cate.append(col)
     #time.sleep(1)
+
+
 #print col_names
 #print array(cate).T
 #categorical DataFrame
@@ -37,3 +40,10 @@ dfnc=pd.DataFrame.from_csv('1k_noncate.csv', index_col=None)
 #combining both data frames
 df=pd.concat([dfnc,dfc],axis=1)
 #df.to_csv("combined.csv")
+
+print df['left'].value_counts()
+
+#X is our data variable and y is our target variable
+#X, y = array(df).T[1:],array(df).T[0]
+
+#X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
