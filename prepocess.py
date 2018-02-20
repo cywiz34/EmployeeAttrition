@@ -41,7 +41,7 @@ dfnc=pd.DataFrame.from_csv('1k_noncate.csv', index_col=None)
 df=pd.concat([dfnc,dfc],axis=1)
 #df.to_csv("combined.csv")
 
-print df['left'].value_counts()
+print df['Attrition'].value_counts()
 
 #X is our data variable and y is our target variable
 #X, y = array(df).T[1:],array(df).T[0]
