@@ -4,6 +4,7 @@ from numpy import argmax
 from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import OneHotEncoder
 import pandas as pd
+import pandas_ml as pdml
 import time
 # define example
 cate=[]#to store encoded categorical values
@@ -43,7 +44,7 @@ df=pd.concat([dfnc,dfc],axis=1)
 
 print df['Attrition'].value_counts()
 
-#X is our data variable and y is our target variable
-#X, y = array(df).T[1:],array(df).T[0]
-
-#X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
+train, test = train_test_split(df, test_size=0.2)
+#print len(train)
+#print len(test)
+print df['MonthlyIncome'],df['JobLevel']
