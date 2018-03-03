@@ -45,6 +45,10 @@ df=pd.concat([dfnc,dfc],axis=1)
 print df['Attrition'].value_counts()
 
 train, test = train_test_split(df, test_size=0.2)
-#print len(train)
-#print len(test)
-print df['MonthlyIncome'],df['JobLevel']
+#print train.describe()
+X_train=train.drop(['Attrition'],axis=1)
+X_test=test.drop(['Attrition'],axis=1)
+Y_train=train.pop('Attrition')
+Y_test=test.pop('Attrition')
+#print len(Y_test),len(Y_train)
+print X_test
