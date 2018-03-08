@@ -51,4 +51,7 @@ X_test=test.drop(['Attrition'],axis=1)
 Y_train=train.pop('Attrition')
 Y_test=test.pop('Attrition')
 #print len(Y_test),len(Y_train)
-print X_test
+'''for i in X_train:
+    for j in range(len(array(X_train[i]))):
+        array(X_train[i])[j]=(array(X_train[i])[j]-min(X_train[i]))/(max(X_train[i])-min(X_train[i]))
+print X_train'''
