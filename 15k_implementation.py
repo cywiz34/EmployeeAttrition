@@ -131,7 +131,7 @@ print answer.params
 
 
 
-
+'''
 # Create function to compute coefficients
 coef = answer.params
 def y (coef, Satisfaction, Evaluation, YearsAtCompany) :
@@ -142,7 +142,7 @@ import numpy as np
 # An Employee with 0.7 Satisfaction and 0.8 Evaluation and worked 3 years has a 14% chance of turnover
 y1 = y(coef, 0.7, 0.8, 3)
 p = np.exp(y1) / (1+np.exp(y1))
-print p
+print p'''
 
 
 
@@ -152,7 +152,8 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, classification_report, precision_score, recall_score, confusion_matrix, precision_recall_curve
-from sklearn.preprocessing import RobustScaler
+#from sklearn.preprocessing import RobustScaler
+'''
 # Create base rate model
 def base_rate_model(X) :
     y = np.zeros(X.shape[0])
@@ -167,7 +168,7 @@ X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.15, random_s
 # Check accuracy of base rate model
 y_base_rate = base_rate_model(X_test)
 from sklearn.metrics import accuracy_score
-print ("Base rate accuracy is %2.2f" % accuracy_score(y_test, y_base_rate))
+print ("Base rate accuracy is %2.2f" % accuracy_score(y_test, y_base_rate))'''
 # Check accuracy of Logistic Model
 from sklearn.linear_model import LogisticRegression
 model = LogisticRegression(penalty='l2', C=1)
@@ -192,24 +193,29 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn import tree
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.linear_model import LogisticRegression
-from sklearn.ensemble import ExtraTreesClassifier
-from sklearn.ensemble import BaggingClassifier
-from sklearn.ensemble import AdaBoostClassifier
-from sklearn.ensemble import GradientBoostingClassifier
-from sklearn.ensemble import VotingClassifier
+#from sklearn.ensemble import ExtraTreesClassifier
+#from sklearn.ensemble import BaggingClassifier
+#from sklearn.ensemble import AdaBoostClassifier
+#from sklearn.ensemble import GradientBoostingClassifier
+#from sklearn.ensemble import VotingClassifier
 
 
-print ("---Base Model---")
+'''print ("---Base Model---")
 base_roc_auc = roc_auc_score(y_test, base_rate_model(X_test))
 print ("Base Rate AUC = %2.2f" % base_roc_auc)
 print(classification_report(y_test, base_rate_model(X_test)))
-
+'''
 # NOTE: By adding in "class_weight = balanced", the Logistic Auc increased by about 10%! This adjusts the threshold value
 logis = LogisticRegression(class_weight = "balanced")
 logis.fit(X_train, y_train)
 print ("\n\n ---Logistic Model---")
 logit_roc_auc = roc_auc_score(y_test, logis.predict(X_test))
 print ("Logistic AUC = %2.2f" % logit_roc_auc)
+tn, fp, fn, tp=confusion_matrix(y_test,logis.predict(X_test)).ravel()
+print "True -ve:",tn
+print "True +ve:",tp
+print "False -ve:",fn
+print "False +ve:",fp
 print(classification_report(y_test, logis.predict(X_test)))
 
 # Decision Tree Model
@@ -222,7 +228,13 @@ dtree = dtree.fit(X_train,y_train)
 print ("\n\n ---Decision Tree Model---")
 dt_roc_auc = roc_auc_score(y_test, dtree.predict(X_test))
 print ("Decision Tree AUC = %2.2f" % dt_roc_auc)
+tn, fp, fn, tp=confusion_matrix(y_test,dtree.predict(X_test)).ravel()
+print "True -ve:",tn
+print "True +ve:",tp
+print "False -ve:",fn
+print "False +ve:",fp
 print(classification_report(y_test, dtree.predict(X_test)))
+print dtree.predict_proba(X_test)
 
 # Random Forest Model
 rf = RandomForestClassifier(
@@ -236,9 +248,14 @@ rf.fit(X_train, y_train)
 print ("\n\n ---Random Forest Model---")
 rf_roc_auc = roc_auc_score(y_test, rf.predict(X_test))
 print ("Random Forest AUC = %2.2f" % rf_roc_auc)
+tn, fp, fn, tp=confusion_matrix(y_test,rf.predict(X_test)).ravel()
+print "True -ve:",tn
+print "True +ve:",tp
+print "False -ve:",fn
+print "False +ve:",fp
 print(classification_report(y_test, rf.predict(X_test)))
 
-
+'''
 # Ada Boost
 ada = AdaBoostClassifier(n_estimators=400, learning_rate=0.1)
 ada.fit(X_train,y_train)
@@ -246,7 +263,7 @@ print ("\n\n ---AdaBoost Model---")
 ada_roc_auc = roc_auc_score(y_test, ada.predict(X_test))
 print ("AdaBoost AUC = %2.2f" % ada_roc_auc)
 print(classification_report(y_test, ada.predict(X_test)))
-
+'''
 
 
 
@@ -261,7 +278,7 @@ from sklearn.metrics import roc_curve
 fpr, tpr, thresholds = roc_curve(y_test, logis.predict_proba(X_test)[:,1])
 rf_fpr, rf_tpr, rf_thresholds = roc_curve(y_test, rf.predict_proba(X_test)[:,1])
 dt_fpr, dt_tpr, dt_thresholds = roc_curve(y_test, dtree.predict_proba(X_test)[:,1])
-ada_fpr, ada_tpr, ada_thresholds = roc_curve(y_test, ada.predict_proba(X_test)[:,1])
+#ada_fpr, ada_tpr, ada_thresholds = roc_curve(y_test, ada.predict_proba(X_test)[:,1])
 
 plt.figure()
 
@@ -275,10 +292,10 @@ plt.plot(rf_fpr, rf_tpr, label='Random Forest (area = %0.2f)' % rf_roc_auc)
 plt.plot(dt_fpr, dt_tpr, label='Decision Tree (area = %0.2f)' % dt_roc_auc)
 
 # Plot AdaBoost ROC
-plt.plot(ada_fpr, ada_tpr, label='AdaBoost (area = %0.2f)' % ada_roc_auc)
+#plt.plot(ada_fpr, ada_tpr, label='AdaBoost (area = %0.2f)' % ada_roc_auc)
 
 # Plot Base Rate ROC
-plt.plot([0,1], [0,1],label='Base Rate' 'k--')
+#plt.plot([0,1], [0,1],label='Base Rate' 'k--')
 
 plt.xlim([0.0, 1.0])
 plt.ylim([0.0, 1.05])

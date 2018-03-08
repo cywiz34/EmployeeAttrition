@@ -89,9 +89,8 @@ plt.show()
 
 
 
-ax = sns.barplot(x="projectCount", y="projectCount", hue="turnover", data=df, estimator=lambda x: len(x) / len(df) * 100)
-ax.set(ylabel="Percent")
-
+'''ax = sns.barplot(x="projectCount", y="projectCount", hue="turnover", data=df, estimator=lambda x: len(x) / len(df) * 100)
+ax.set(ylabel="Percent")'''
 
 
 fig = plt.figure(figsize=(15,4),)
@@ -123,12 +122,12 @@ plt.show()
 
 
 
-sns.boxplot(x="projectCount", y="averageMonthlyHours", hue="turnover", data=df)
+'''sns.boxplot(x="projectCount", y="averageMonthlyHours", hue="turnover", data=df)
 plt.show()
 
 
 sns.boxplot(x="projectCount", y="evaluation", hue="turnover", data=df)
-plt.show()
+plt.show()'''
 
 sns.lmplot(x='satisfaction', y='evaluation', data=df,
            fit_reg=False, # No regression line
