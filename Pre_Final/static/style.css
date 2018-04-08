@@ -1,0 +1,164 @@
+
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
+body{line-height:1}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+nav ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:none}
+a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent;text-decoration:none}
+mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
+del{text-decoration:line-through}
+abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
+table{border-collapse:collapse;border-spacing:0}
+hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
+input,select{vertical-align:middle}
+li{list-style:none}
+
+
+/* ---- base ---- */
+
+html,body{ 
+	background-color:#071612;
+}
+
+html{
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body{
+  font:normal 75% Arial, Helvetica, sans-serif;
+}
+
+canvas{
+  display:block;
+  vertical-align:bottom;
+}
+
+
+/* ---- particles.js container ---- */
+
+#particles-js{
+  width: 100%;
+  height:21%;
+  background-color:#071612;
+  background-image: url('');
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+
+#particles1-js{
+  width: 17%;
+  height:950px;
+  display:block;
+  float:right;
+  background-color:#071612;
+  background-image: url('');
+  background-size: cover;
+  background-position:center;
+  background-repeat: no-repeat;
+}
+#particles2-js{
+  width: 17%;
+  height:950px;
+  display:block;
+  top:200px;
+  float:left;
+  background-color:#071612;
+  background-image: url('');
+  background-size: cover;
+  background-position:center;
+  background-repeat: no-repeat;
+}
+
+#particles3-js{
+  width: 100%;
+  height:45%;
+  float:top;
+  background-color:#071612;
+  background-image: url('');
+  background-size: cover;
+  background-position:top center;
+  background-repeat: no-repeat;
+}
+
+
+/* ----------- for details -------------*/
+
+.details{
+    font-family: 'Open Sans Condensed', arial, sans;
+    width: 800px;
+    padding: 30px;
+    background:#FFFFFF;
+    border-radius: 25px;
+    margin: 50px auto;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+}
+.details h2{
+    background-color:white;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color:#797979;
+    width: 400px;
+    border-radius:25px;
+    font-size: 17px;
+    text-align: center;
+    font-weight: 100;
+    padding: 15px;
+    margin: -30px -30px 30px 180px;
+}
+.details input[type="text"],
+.details input[type="number"],
+.details select 
+{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    display: block;
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    margin-bottom: 10px;
+    font: 16px katakana, Helvetica, sans-serif;
+    height: 45px;
+}
+.details select {
+  color:#a6a6a6;
+}
+.details input[type="button"], 
+.details input[type="submit"]{
+    -moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    box-shadow: inset 0px 1px 0px 0px #45D6D6;
+    background-color: #2CBBBB;
+    border: 1px solid #27A0A0;
+    display: inline-block;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 14px;
+    padding: 8px 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+    float:right;
+}
+.details input[type="button"]:hover, 
+.details input[type="submit"]:hover {
+    background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+    background-color:#34CACA;
+}
+
+.result
+{
+
+    font-family: 'Open Sans Condensed', sans-serif;
+    color:#797979;
+    font-size: 17px;
+    text-align: center;
+    font-weight: 100;
+}

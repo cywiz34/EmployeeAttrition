@@ -1,0 +1,78 @@
+<html>
+<head>
+	<title>
+		EAP-MODEL
+	</title>
+	<link rel="stylesheet" href="/static/style.css" />
+	<link rel="icon" type="image/png" href="/static/icon2.png"/>
+</head>
+<body>
+<div id="particles-js">
+<script type="text/javascript" src="/static/js/particles.js"></script>
+<script type="text/javascript" src="/static/js/app.js"></script>
+<div id="particles2-js">
+<script type="text/javascript" src="/static/js/particles.js"></script>
+<script type="text/javascript" src="/static/js/app2.js"></script>
+</div>
+<div id="particles1-js">
+<script type="text/javascript" src="/static/js/particles.js"></script>
+<script type="text/javascript" src="/static/js/app1.js"></script>
+</div>
+<div class="details">
+
+
+<h2>Here goes the Prediction!</h2>
+
+<form action="/predict" method="post">
+      <input  type="text" name="Satisfaction" placeholder="Satisfaction"/>
+      <input type="text" name="Evaluation" placeholder="Evaluation"/>
+      <input type="text" name="Project Count" placeholder="ProjectCount"/> 
+      <input type="text" name="Average Monthly Hours" placeholder="Average Monthly Hours"/> 
+      <input type="text" name="Years At Company" placeholder="Years At Company"/>
+      
+      <select  name="Work Accident">
+      <option value="" disabled selected>WorkAccident</option>
+      <option value="0">No</option>
+      <option value="1">Yes</option>
+      </select>
+
+      <select name="Promotion">
+      <option value="" disabled selected>Promotion</option>
+      <option value="0">No</option>
+      <option value="1">Yes</option>
+      </select>
+
+      
+      <select name="Salary">
+      <option value="" disabled selected>Salary</option>
+      <option value="0">Low</option>
+      <option value="1">Medium</option>
+      <option value="2">High</option>
+      </select>
+
+      <select name="Department">
+      <option value="" disabled selected>Department</option>
+      <option value="0">IT</option>
+      <option value="1">R & D</option>
+      <option value="2">Accounting</option>
+      <option value="3">HR</option>
+      <option value="4">Management</option>
+      <option value="5">Marketing</option>
+      <option value="6">Product Manager</option>
+      <option value="7">Sales</option>
+      <option value="8">Support</option>
+      <option value="9">Technical</option>
+      </select>
+      <input type="submit" value="Predict"> <br>
+      </form>
+
+      <div class="result">{% if label1 %} {{ label1 }} {% endif %}<br><br>
+      {% if label2 %} {{ label2 }} {% endif %}  
+      </div>
+</div>
+<div id="particles3-js">
+<script type="text/javascript" src="/static/js/particles.js"></script>
+<script type="text/javascript" src="/static/js/app3.js"></script>
+</div>
+</body>
+</html>
