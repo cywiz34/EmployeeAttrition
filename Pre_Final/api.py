@@ -34,7 +34,8 @@ def make_prediction():
         department=request.form.get('Department')
         sample.append(department)
         sampleDf= pd.DataFrame(sample)
-        if len(sample)<9: return render_template('inded.html', label1="Missing data or incorrect data entered")
+        if len(sample)<9: 
+            return render_template('inded.html', label1="Missing data or incorrect data entered")
         # make prediction
         prediction = model.predict(sampleDf.T)
         confidence = model.predict_proba(sampleDf.T)

@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="/static/style.css" />
 	<link rel="icon" type="image/png" href="/static/icon2.png"/>
 </head>
+
 <body>
 <div id="particles-js">
 <script type="text/javascript" src="/static/js/particles.js"></script>
@@ -24,12 +25,21 @@
 <h2>Here goes the Prediction!</h2>
 
 <form action="/predict" method="post">
-      <input  type="text" name="Satisfaction" placeholder="Satisfaction"/>
-      <input type="text" name="Evaluation" placeholder="Evaluation"/>
-      <input type="text" name="Project Count" placeholder="ProjectCount"/> 
-      <input type="text" name="Average Monthly Hours" placeholder="Average Monthly Hours"/> 
-      <input type="text" name="Years At Company" placeholder="Years At Company"/>
-      
+      <input class="sat" type="text" name="Satisfaction" placeholder="Satisfaction" required/>
+      <span class="error0"></span>
+
+      <input class="eval" type="text"  name="Evaluation" placeholder="Evaluation" required/>
+      <span class="error1"></span>
+
+      <input class="pc" type="text"  name="Project Count" placeholder="ProjectCount" required/>
+      <span class="error2"></span> 
+
+      <input class="Avg" type="text"  name="Average Monthly Hours" placeholder="Average Monthly Hours" required/> 
+      <span class="error3"></span>
+
+      <input class="Years" type="text"  name="Years At Company" placeholder="Years At Company" required/>
+      <span class="error4"></span>
+
       <select  name="Work Accident">
       <option value="" disabled selected>WorkAccident</option>
       <option value="0">No</option>
@@ -65,14 +75,16 @@
       </select>
       <input type="submit" value="Predict"> <br>
       </form>
-
-      <div class="result">{% if label1 %} {{ label1 }} {% endif %}<br><br>
+     <div class="result">{% if label1 %} {{ label1 }} {% endif %}<br><br>
       {% if label2 %} {{ label2 }} {% endif %}  
       </div>
+      
 </div>
 <div id="particles3-js">
 <script type="text/javascript" src="/static/js/particles.js"></script>
 <script type="text/javascript" src="/static/js/app3.js"></script>
 </div>
+<script type="text/javascript" src="/static/js/jquery.js"></script>
+<script type="text/javascript" src="/static/js/attrition.js"></script>
 </body>
 </html>
