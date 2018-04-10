@@ -34,6 +34,10 @@ canvas{
   vertical-align:bottom;
 }
 
+title
+{
+  font:normal 75% Arial, Helvetica, sans-serif;
+}
 
 /* ---- particles.js container ---- */
 
@@ -98,12 +102,13 @@ canvas{
     -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
 }
 .details h2{
-    background-color:white;
-    font-family: 'Open Sans Condensed', sans-serif;
-    color:#797979;
+    background-color: #2CBBBB;
+    font-family: 'Hi Melody', cursive;
+    /*font-family: 'Josefin Slab';/*'Open Sans Condensed', sans-serif;*/
+    color:white/*#797979*/;
     width: 400px;
     border-radius:25px;
-    font-size: 17px;
+    font-size: 25px;
     text-align: center;
     font-weight: 100;
     padding: 8px;
@@ -124,7 +129,9 @@ canvas{
     border-bottom: 1px solid #ddd;
     background: transparent;
     margin-bottom: 5px;
-    font: 16px katakana, Helvetica, sans-serif;
+    /*font: 16px katakana, Helvetica, sans-serif;*/
+   font-family: 'Gamja Flower', cursive;
+    font-size:20px;
     height: 45px;
 }
 span[class*='error']
@@ -148,9 +155,11 @@ span[class*='error']
     display: inline-block;
     cursor: pointer;
     color: #FFFFFF;
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 14px;
+    font-family: 'Hi Melody', cursive;
+    /*font-family: 'Open Sans Condensed', sans-serif;*/
+    font-size: 22px;
     padding: 5px 15px;
+    margin-top:3px;
     text-decoration: none;
     text-transform: uppercase;
     float:right;
