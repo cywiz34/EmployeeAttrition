@@ -1,0 +1,41 @@
+.result
+{
+
+    font-family: 'Josefin Slab', serif;
+    font-size:25px;
+    /*font-family: 'Open Sans Condensed', sans-serif;*/
+    color:black;
+    text-align: center;
+    font-weight: 100;
+    position:relative;
+    margin:50px;
+    padding:10px;
+}
+
+hr
+{
+	margin-top:35px;
+}
+
+#headtitle
+{
+	font-family: 'Jua', sans-serif;
+	border: 2px solid black;
+	padding:8px;
+	position:relative;
+	top:15px;
+	left:570px;
+	text-align:center;
+	letter-spacing: 4px;
+}
+#img
+{
+	position:relative;
+	left:32%;
+}
+#imgcaption
+{
+	position:relative;
+	left:46%; 
+    font-family: 'Pangolin', cursive;
+}

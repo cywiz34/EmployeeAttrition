@@ -35,7 +35,7 @@ def make_prediction():
         sample.append(department)
         sampleDf= pd.DataFrame(sample)
         if len(sample)<9: 
-            return render_template('inded.html', label1="Missing data or incorrect data entered")
+            return render_template('result.html', label1="Missing data or incorrect data entered")
         # make prediction
         prediction = model.predict(sampleDf.T)
         confidence = model.predict_proba(sampleDf.T)
@@ -44,9 +44,9 @@ def make_prediction():
         else:
             label2 = "Confidence Level : "+str(round(confidence[0][0],2))
         if prediction[0]==1:
-            return render_template('inded.html', label1="This Employee is at a high risk of leaving the Company", label2=label2)
+            return render_template('result.html', label1="This Employee is at a high risk of leaving the Company", label2=label2)
         else:
-            return render_template('inded.html', label1="This Employee is not at risk of leaving the Company", label2=label2)    
+            return render_template('result.html', label1="This Employee is not at risk of leaving the Company", label2=label2)    
 if __name__ =='__main__':
     model = joblib.load('model.pkl')
     app.run(host='127.0.0.1', port=8002, debug=True)    
