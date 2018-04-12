@@ -1,22 +1,24 @@
 import flask
-from flask import Flask, request, render_template
+from flask import Flask,render_template,request,jsonify
 from sklearn.externals import joblib
-import numpy as np
-from scipy import misc
+from treeinterpreter import treeinterpreter as ti
 import pandas as pd
+import json
 
-app = Flask(__name__)
+app=Flask(__name__)
 
-@app.route("/")
-@app.route("/index")
-def index():
-    return flask.render_template('index.html')
+@app.route('/')
+@app.route('/hello',methods=['POST'])
+def hello():
+    return flask.render_template('inded.html')
 
-
-@app.route('/predict', methods=['POST'])
+@app.route('/predict',methods=['POST'])
 def make_prediction():
     if request.method=='POST':
         sample=[]
+        data={}
+        feature_names=['satisfaction', 'evaluation', 'projectCount', 'averageMonthlyHours', 'yearsAtCompany', 'workAccident', 'promotion', 'salary', 'department']
+
         #print request.form
         satisfaction=request.form.get('Satisfaction')
         sample.append(float(satisfaction))
@@ -37,22 +39,28 @@ def make_prediction():
         department=request.form.get('Department')
         sample.append(department)
         sampleDf= pd.DataFrame(sample)
-        if len(sample)<9: return render_template('index.html', label1="Missing data or incorrect data entered")
+        if len(sample)<9:
+            return render_template('result.html', label1="Missing data or incorrect data entered")
         # make prediction
         prediction = model.predict(sampleDf.T)
+        pred, bias, contributions = ti.predict(model, sampleDf.T)
         confidence = model.predict_proba(sampleDf.T)
-        if prediction ==1:
-            label2 = "Confidence Level : "+str(round(confidence[0][1],2))
-        else:
-            label2 = "Confidence Level : "+str(round(confidence[0][0],2))
-        if prediction[0]==1:
-            return render_template('index.html', label1="This Employee is at a high risk of leaving the Company", label2=label2)
-        else:
-            return render_template('index.html', label1="This Employee is not at risk of leaving the Company", label2=label2)
+        data["confidence_0"]=confidence[0][0]
+        data["confidence_0"]=confidence[0][1]
+        data["Prediction"]=prediction[0]
+        #json_cities = json.dumps(city_array)
+        #return render (request, 'plot3/plot_page.html', {"city_array" : json_cities})
 
+        data[0]={}
+        data[1]={}
+        for c in range(len(contributions[0])):
 
-if __name__ == '__main__':
-    # load ml model
+            data[0][feature_names[c]]=round(contributions[0][c][0],2)
+            data[1][feature_names[c]]=round(contributions[0][c][1],2)
+
+        json_data = json.dumps(data)
+        jsonify(data=data)
+        return render_template('result.html', data=data)
+if __name__ =='__main__':
     model = joblib.load('model.pkl')
-    # start api
-    app.run(host='127.0.0.1', port=8000, debug=True)
+    app.run(host='127.0.0.1', port=8002, debug=True)

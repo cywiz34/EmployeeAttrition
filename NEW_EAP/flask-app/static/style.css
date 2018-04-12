@@ -18,9 +18,7 @@ li{list-style:none}
 /* ---- base ---- */
 
 html,body{
-	width:100%;
-	height:100%;
-	background-color:black;
+	background-color:#071612;              /*#1a1c2f-darkish blue-2 #1ad1ff #071612*/
 }
 
 html{
@@ -36,71 +34,117 @@ canvas{
   vertical-align:bottom;
 }
 
-
+title
+{
+  font:normal 75% Arial, Helvetica, sans-serif;
+}
 
 /* ---- particles.js container ---- */
 
 #particles-js{
   width: 100%;
-  height: 100%;
-  background-color:black;
+  height:10%;
+  background-color:#071612/*#071612*/;
   background-image: url('');
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
 }
 
+
+#particles1-js{
+  width: 17%;
+  height:770px;
+  display:block;
+  float:right;
+  background-color:#071612/*#071612*/;
+  background-image: url('');
+  background-size: cover;
+  background-position:center;
+  background-repeat: no-repeat;
+}
+#particles2-js{
+  width: 17%;
+  height:770px;
+  display:block;
+  top:200px;
+  float:left;
+  background-color:#071612;                               /*#3dadb3-lightblue0 #269191-lightblue1 #071612 - black,#232955-darkish blue*/
+  background-image: url('');
+  background-size: cover;
+  background-position:center;
+  background-repeat: no-repeat;
+}
+
+#particles3-js{
+  width:855px;
+  height:160px;
+  float:left;
+  background-color:#071612/*#071612*/;
+  background-image: url('');
+  background-size: cover;
+  background-position:top center;
+  background-repeat: no-repeat;
+}
+
+
 /* ----------- for details -------------*/
 
 .details{
     font-family: 'Open Sans Condensed', arial, sans;
-    width: 800px;
+    width: 500px;
     padding: 30px;
-    background: #FFFFFF;
+    background:#FFFFFF;
     border-radius: 25px;
-    margin: 50px auto;
+    margin: 5px auto;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
     -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
     -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
 }
 .details h2{
-    background:white;
-    font-family: 'Open Sans Condensed', sans-serif;
-    color: #797979;
+    background-color: #2CBBBB;
+    font-family: 'Hi Melody', cursive;
+    /*font-family: 'Josefin Slab';/*'Open Sans Condensed', sans-serif;*/
+    color:white/*#797979*/;
     width: 400px;
     border-radius:25px;
-    font-size: 17px;
+    font-size: 25px;
     text-align: center;
     font-weight: 100;
-    padding: 15px;
+    padding: 8px;
     margin: -30px -30px 30px 180px;
 }
 .details input[type="text"],
-.details input[type="email"],
 .details input[type="number"],
-.details input[type="search"],
-.details input[type="time"],
-.details input[type="url"],
-.details textarea,
 .details select
 {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     outline: none;
+    color:#a6a6a6;
     display: block;
     width: 100%;
-    padding: 7px;
+    padding: 2px;
     border: none;
     border-bottom: 1px solid #ddd;
     background: transparent;
-    margin-bottom: 10px;
-    font: 16px katakana, Helvetica, sans-serif;
+    margin-bottom: 3px;
+    /*font: 16px katakana, Helvetica, sans-serif;*/
+   font-family: 'Gamja Flower', cursive;
+    font-size:15px;
     height: 45px;
 }
-.details textarea{
-    resize:none;
-    overflow: hidden;
+span[class*='error']
+{
+  font: 16px katakana, Helvetica, sans-serif;
+  float:left;
+  display:block;
+  width:100%;
+  color:red;
+}
+.details select {
+  color:#a6a6a6;
 }
 .details input[type="button"],
 .details input[type="submit"]{
@@ -112,14 +156,27 @@ canvas{
     display: inline-block;
     cursor: pointer;
     color: #FFFFFF;
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 14px;
-    padding: 8px 18px;
+    font-family: 'Hi Melody', cursive;
+    /*font-family: 'Open Sans Condensed', sans-serif;*/
+    font-size: 15px;
+    padding: 2px 3px;
+    margin-top:2px;
     text-decoration: none;
     text-transform: uppercase;
+    float:right;
 }
 .details input[type="button"]:hover,
 .details input[type="submit"]:hover {
     background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
     background-color:#34CACA;
+}
+
+.result
+{
+
+    font-family: 'Open Sans Condensed', sans-serif;
+    color:#797979;
+    font-size: 17px;
+    text-align: center;
+    font-weight: 100;
 }

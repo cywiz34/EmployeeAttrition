@@ -1,0 +1,88 @@
+<html>
+<head>
+	<title>
+		&#6158; &nbsp; &nbsp; E.A.P Model
+	</title>
+	<link rel="stylesheet" href="/static/style.css" />
+	<link rel="icon" type="image/png" href="/static/icon2.png"/>
+      <link href="https://fonts.googleapis.com/css?family=Hi+Melody" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet">
+</head>
+
+<body>
+<div id="particles-js">
+<script type="text/javascript" src="/static/js/particles.js"></script>
+<script type="text/javascript" src="/static/js/app.js"></script>
+<div id="particles2-js">
+<script type="text/javascript" src="/static/js/particles.js"></script>
+<script type="text/javascript" src="/static/js/app2.js"></script>
+</div>
+<div id="particles1-js">
+<script type="text/javascript" src="/static/js/particles.js"></script>
+<script type="text/javascript" src="/static/js/app1.js"></script>
+</div>
+<div class="details">
+
+
+<h2>Here goes the Prediction!</h2>
+
+<form action="/predict" method="post" >
+      <input class="sat" type="text" name="Satisfaction" placeholder="Satisfaction" required/>
+      <span class="error0"></span>
+
+      <input class="eval" type="text"  name="Evaluation" placeholder="Evaluation" required/>
+      <span class="error1"></span>
+
+      <input class="pc" type="text"  name="Project Count" placeholder="ProjectCount" required/>
+      <span class="error2"></span>
+
+      <input class="Avg" type="text"  name="Average Monthly Hours" placeholder="Average Monthly Hours" required/>
+      <span class="error3"></span>
+
+      <input class="Years" type="text"  name="Years At Company" placeholder="Years At Company" required/>
+      <span class="error4"></span>
+
+      <select  name="Work Accident">
+      <option value="" disabled selected>WorkAccident</option>
+      <option value="0">No</option>
+      <option value="1">Yes</option>
+      </select>
+
+      <select name="Promotion">
+      <option value="" disabled selected>Promotion</option>
+      <option value="0">No</option>
+      <option value="1">Yes</option>
+      </select>
+
+
+      <select name="Salary">
+      <option value="" disabled selected>Salary</option>
+      <option value="0">Low</option>
+      <option value="1">Medium</option>
+      <option value="2">High</option>
+      </select>
+
+      <select name="Department">
+      <option value="" disabled selected>Department</option>
+      <option value="0">IT</option>
+      <option value="1">R & D</option>
+      <option value="2">Accounting</option>
+      <option value="3">HR</option>
+      <option value="4">Management</option>
+      <option value="5">Marketing</option>
+      <option value="6">Product Manager</option>
+      <option value="7">Sales</option>
+      <option value="8">Support</option>
+      <option value="9">Technical</option>
+      </select>
+      <input type="submit" value="Predict"> <br>
+      </form>
+</div>
+<div id="particles3-js">
+<script type="text/javascript" src="/static/js/particles.js"></script>
+<script type="text/javascript" src="/static/js/app3.js"></script>
+</div>
+<script type="text/javascript" src="/static/js/jquery.js"></script>
+<script type="text/javascript" src="/static/js/attrition.js"></script>
+</body>
+</html>

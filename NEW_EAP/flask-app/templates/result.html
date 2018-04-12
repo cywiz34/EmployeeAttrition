@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<title>
+Result!
+</title>
+<link rel="stylesheet" href="/static/resultstyle.css" />
+<link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Pangolin" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
+</head>
+<body>
+  <form method="post" action="/hello">
+      <button type="submit">Home</button>
+  </form>
+<span id="headtitle">RESULT</span>
+
+<div class="result">
+  {% if data['Prediction']==1 %}
+
+  <p><b>Employee is at a high risk of leaving</b></p></br>
+<p align=left>
+  <font size="3" color="red">Feature Contribution towards 1:</br>
+  Satisfaction    : {{data[1]['satisfaction']}}</br>
+  Evaluation      : {{data[1]['evaluation']}}</br>
+  Project Count   : {{data[1]['projectCount']}}</br>
+  Monthly Hours   : {{data[1]['averageMonthlyHours']}}</br>
+  Years At Company: {{data[1]['yearsAtCompany']}}</br>
+  Work Accident   : {{data[1]['workAccident']}}</br>
+  Promotion       : {{data[1]['promotion']}}</br>
+  Salary          : {{data[1]['salary']}}</br>
+  Department      : {{data[1]['department']}}</br>
+</font>
+</p>
+ {% else %}
+
+
+
+<p><b>Employee is not at a risk of leaving</b></p></br>
+
+<p align=left>
+ <font size="3" color="red">Feature Contribution towards 0:</br>
+ Satisfaction    : {{data[0]['satisfaction']}}</br>
+ Evaluation      : {{data[0]['evaluation']}}</br>
+ Project Count   : {{data[0]['projectCount']}}</br>
+ Monthly Hours   : {{data[0]['averageMonthlyHours']}}</br>
+ Years At Company: {{data[0]['yearsAtCompany']}}</br>
+ Work Accident   : {{data[0]['workAccident']}}</br>
+ Promotion       : {{data[0]['promotion']}}</br>
+ Salary          : {{data[0]['salary']}}</br>
+ Department      : {{data[0]['department']}}</br>
+</font></p>
+ {% endif %}<br>
+
+
+<hr/>
+</div>
+
+<span id="imgcaption">ROC GRAPH</span>
+
+<div class="imgdivision">
+<img id="img" src="/static/roc.png"/>
+</div>
+</body>
+</html>
