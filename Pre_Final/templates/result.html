@@ -2,19 +2,59 @@
 <html>
 <head>
 <title>
-Result!
+&#6158; &nbsp;Result!
 </title>
 <link rel="stylesheet" href="/static/resultstyle.css" />
+<link rel="icon" type="image/png" href="/static/icon2.png"/>
 <link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Pangolin" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
 </head>
 <body>
+  <form method="post" action="/hello">
+     <button type="submit">Home</button>
+  </form>
 <span id="headtitle">RESULT</span>
 
 <div class="result">
-{% if label1 %} {{ label1 }} {% endif %}<br><br>
-{% if label2 %} {{ label2 }} {% endif %}  
+  {% if data['Prediction']==1 %}
+
+  <p><b>Employee is at a high risk of leaving</b></p></br>
+  <hr/>
+<div id="emp">
+  Feature Contribution towards leaving the Company:</br>
+  Satisfaction    : {{data[1]['satisfaction']}}</br>
+  Evaluation      : {{data[1]['evaluation']}}</br>
+  Project Count   : {{data[1]['projectCount']}}</br>
+  Monthly Hours   : {{data[1]['averageMonthlyHours']}}</br>
+  Years At Company: {{data[1]['yearsAtCompany']}}</br>
+  Work Accident   : {{data[1]['workAccident']}}</br>
+  Promotion       : {{data[1]['promotion']}}</br>
+  Salary          : {{data[1]['salary']}}</br>
+  Department      : {{data[1]['department']}}</br>
+
+</div>
+ {% else %}
+
+
+
+<p><b>Employee is not at a risk of leaving</b></p></br>
+<hr/>
+<div id="emp">
+ Feature Contribution towards not leaving the company:</br>
+ Satisfaction    : {{data[0]['satisfaction']}}</br>
+ Evaluation      : {{data[0]['evaluation']}}</br>
+ Project Count   : {{data[0]['projectCount']}}</br>
+ Monthly Hours   : {{data[0]['averageMonthlyHours']}}</br>
+ Years At Company: {{data[0]['yearsAtCompany']}}</br>
+ Work Accident   : {{data[0]['workAccident']}}</br>
+ Promotion       : {{data[0]['promotion']}}</br>
+ Salary          : {{data[0]['salary']}}</br>
+ Department      : {{data[0]['department']}}</br>
+</div>
+ {% endif %}<br>
+
+
 <hr/>
 </div>
 
